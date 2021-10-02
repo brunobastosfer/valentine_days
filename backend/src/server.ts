@@ -1,5 +1,16 @@
 import express from 'express';
 
-const app = express();
+import './database'
 
-app.listen(3000, () =>console.log("Servidor rodando na porta 3000"))
+const app = express();
+app.use(express.json());
+
+const PORT = 3333;
+
+app.get('/login', (request, response) => {
+    response.json({
+        message: "Olá, seja bem vindo!"
+    })
+});
+
+app.listen(PORT, () =>console.log(`Servidor rodando na porta ${PORT}`));
